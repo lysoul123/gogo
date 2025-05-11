@@ -1,14 +1,14 @@
- name: Auto Update Worker
+name: Auto Update Worker
 
-on:
-  push:
-    branches:
+on: # 顶层关键字
+  push: # 事件类型，与 'on' 同级缩进或少一级（这里是少一级）
+    branches: # 'push' 的配置项
       - main
-  schedule:
-    - cron: "0 1 * * *" # 每天凌晨1点运行
-  workflow_dispatch:
-    inputs:
-      force_update:
+  schedule: # 事件类型
+    - cron: "0 1 * * *" # 'schedule' 的配置项
+  workflow_dispatch: # 事件类型
+    inputs: # 'workflow_dispatch' 的配置项
+      force_update: # 'inputs' 的子项
         description: '是否强制更新（忽略版本检查）'
         required: false
         default: 'false'
